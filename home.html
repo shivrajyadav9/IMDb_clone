@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDB</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <div id="nav-bar">
+        <div id="home">
+            <a href="home.html">Home</a>
+        </div>
+        <div id="favourites">
+            <a href="favourites.html">Favourites</a>
+        </div>
+    </div>
+
+
+    <form method="get" action="http://www.omdbapi.com/?i=tt3896198&apikey=81762ca3">
+        <div id="search-bar">
+        <div id="search-input">
+            <input type="text" name="title" placeholder="Search Movie..." id="search-box">
+        </div>
+        <div id="submit">
+            <input type="submit" value="Search" id="search-button">
+        </div>
+        </div>
+    </form>
+
+    <div id="search-results">
+        <!-- <div class="movie-card">
+            <a href="movie.html">
+                <div class="poster">
+                    <img src="poster.jpg">
+                </div>
+            </a>
+            <div class="favourite-button">
+                <input type="submit" value="Add to Favourites" class="favourites-button">
+            </div>
+        </div> -->
+    </div>
+
+    <script src="home.js"></script>
+</body>
+
+</html>
