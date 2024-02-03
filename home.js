@@ -2,9 +2,9 @@ const apiKey = '81762ca3';
 
 window.onload = async function () {
     let lastSearch = JSON.parse(localStorage.getItem('lastSearch'));
-    console.log('lastsearch',lastSearch);
-    if(lastSearch==null){
-        lastSearch='avengers';
+    console.log('lastsearch', lastSearch);
+    if (lastSearch == null) {
+        lastSearch = 'avengers';
     }
     let results = await search(lastSearch);
     displaySearchResults(results);
@@ -13,9 +13,14 @@ window.onload = async function () {
 // function to search movies
 async function search(query) {
     localStorage.setItem('lastSearch', JSON.stringify(query));
-    let results = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${apiKey}&s=${query}`);
-    let data = await results.json();
-    return data.Search;
+    try {
+        let results = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${apiKey}&s=${query}`);
+        let data = await results.json();
+        return data.Search;
+    }
+    catch (err) {
+        console.log('Error in searching ', err);
+    }
 }
 
 // function to set clicked movie in local storage
