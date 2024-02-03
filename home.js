@@ -1,8 +1,8 @@
 const apiKey = '81762ca3';
 
+// show results from last search when page loads
 window.onload = async function () {
     let lastSearch = JSON.parse(localStorage.getItem('lastSearch'));
-    console.log('lastsearch', lastSearch);
     if (lastSearch == null) {
         lastSearch = 'avengers';
     }
@@ -25,20 +25,16 @@ async function search(query) {
 
 // function to set clicked movie in local storage
 function setCurrentMovie(e) {
-    // e.preventDefault();
-    console.log('hello');
     let imdbID = e.target.dataset.id;
-    console.log('current movie', imdbID);
     localStorage.setItem('currentMovie', JSON.stringify(imdbID));
+    return;
 }
 
 // function to add favourite
 function addFavourite(e) {
     let imdbID = e.target.id;
-    console.log(imdbID);
     let favourites = JSON.parse(localStorage.getItem('favouriteMovies'));
     if (favourites) {
-        console.log(favourites);
         let index = favourites.indexOf(imdbID);
         if (index == -1) {
             favourites.push(imdbID);
@@ -86,18 +82,11 @@ function displaySearchResults(results) {
     for (let link of links) {
         link.addEventListener('click', setCurrentMovie);
     }
+    return;
 }
 
-// Event listner for search
-// async function searchHelper() {
-//     let searchTerm = document.getElementById('search-box').value.trim();
-//     if (searchTerm > 0) {
-//         console.log(searchTerm);
-//         let results = await search(searchTerm);
-//         displaySearchResults(results);
-//     }
-// }
 
+// add event listner to search box
 let searchBox = document.getElementById('search-box');
 searchBox.addEventListener('keyup', a);
 
@@ -122,4 +111,5 @@ function a(e) {
     catch (err) {
         console.log('Error in searching movie', err);
     }
+    return;
 }

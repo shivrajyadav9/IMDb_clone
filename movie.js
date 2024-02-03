@@ -1,7 +1,7 @@
 const apiKey = '81762ca3';
 const id = JSON.parse(localStorage.getItem('currentMovie'));
-console.log('hello', id);
 
+// fetch movie details when page loads
 window.onload = async function () {
     let data = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`);
     let movie = await data.json();
@@ -9,6 +9,7 @@ window.onload = async function () {
     console.log(movie);
 }
 
+// function to display movie details
 function displayMovie(movie) {
     let detailsContainer = document.getElementById('movie');
     let details = document.createElement('div');
@@ -35,7 +36,6 @@ function displayMovie(movie) {
     </div>
 
 </div>`;
-    console.log('inside display');
 
     detailsContainer.appendChild(details);
     let favouriteButtons = document.getElementsByClassName('favourites-button');
@@ -47,10 +47,8 @@ function displayMovie(movie) {
 // function to add favourite
 function addFavourite(e) {
     let imdbID = e.target.id;
-    console.log(imdbID);
     let favourites = JSON.parse(localStorage.getItem('favouriteMovies'));
     if (favourites) {
-        console.log(favourites);
         let index = favourites.indexOf(imdbID);
         if (index == -1) {
             favourites.push(imdbID);
