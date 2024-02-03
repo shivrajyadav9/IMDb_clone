@@ -14,7 +14,7 @@ window.onload = async function () {
 async function search(query) {
     localStorage.setItem('lastSearch', JSON.stringify(query));
     try {
-        let results = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${apiKey}&s=${query}`);
+        let results = await fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=${apiKey}&s=${query}`);
         let data = await results.json();
         return data.Search;
     }

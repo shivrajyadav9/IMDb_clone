@@ -7,7 +7,7 @@ let a = function () {
         console.log('fav', favourites);
         let movies = [];
         for (let favourite of favourites) {
-            let movie = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${favourite}`);
+            let movie = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${favourite}`);
             let data = await movie.json();
             console.log(data);
             movies.push(data);

@@ -3,7 +3,7 @@ const id = JSON.parse(localStorage.getItem('currentMovie'));
 console.log('hello', id);
 
 window.onload = async function () {
-    let data = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`);
+    let data = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`);
     let movie = await data.json();
     displayMovie(movie);
     console.log(movie);
